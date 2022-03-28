@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_nav_graph"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.beautifului.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_singleViewFragment"
+            app:destination="@id/singleViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleViewFragment"
+        android:name="com.example.beautifului.SingleViewFragment"
+        android:label="fragment_single_view"
+        tools:layout="@layout/fragment_single_view" />
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.beautifului.TitleFragment"
+        android:label="fragment_title"
+        tools:layout="@layout/fragment_title" >
+        <action
+            android:id="@+id/action_titleFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:popUpTo="@id/list_nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

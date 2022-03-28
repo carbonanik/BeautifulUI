@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Beautiful UI</string>
+    <string name="transition_logo_image">logo_image</string>
+    <string name="transition_app_name">app_name</string>
+
+    <string name="posterImageTN">posterImageTN %s</string>
+    <string name="roundedBackgroundTN">roundedBackgroundTN %s</string>
+    <string name="isFavoriteTN">isFavoriteTN %s</string>
+    <string name="movieTitleTN">movieTitleTN %s</string>
+    <string name="movieYearTN">movieYearTN %s</string>
+    <string name="directorNameTN">directorNameTN %s</string>
+</resources>

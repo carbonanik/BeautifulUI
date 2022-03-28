@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="movie"
+            type="com.example.beautifului.model.Movie" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/rounder_background"
+            android:transitionName="@{@string/roundedBackgroundTN(String.valueOf(movie.id))}"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/poster_image"
+            app:srcCompat="@drawable/container_bg" />
+
+        <ImageView
+            android:id="@+id/poster_image"
+            android:transitionName="@{@string/posterImageTN(String.valueOf(movie.id))}"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:adjustViewBounds="false"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="h,1:1.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:roundedCornerImage="@{movie.imgRes}"
+            app:shadeBackground="@{@id/rounder_background}"
+            tools:srcCompat="@drawable/aguner_porosmoni" />
+
+        <TextView
+            android:id="@+id/movie_title"
+            android:transitionName="@{@string/movieTitleTN(String.valueOf(movie.id))}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
+            android:text="@{movie.name}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/is_favorite"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/poster_image"
+            app:layout_constraintTop_toTopOf="@+id/rounder_background"
+            tools:text="Aguner Poroshmoni" />
+
+        <TextView
+            android:id="@+id/movie_year"
+            android:transitionName="@{@string/movieYearTN(String.valueOf(movie.id))}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{movie.year}"
+            tools:text="1995"
+            app:layout_constraintStart_toStartOf="@+id/movie_title"
+            app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+
+        <TextView
+            android:id="@+id/director_name"
+            android:transitionName="@{@string/directorNameTN(String.valueOf(movie.id))}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{movie.director}"
+            tools:text="By Humayun Ahmed"
+            app:layout_constraintStart_toStartOf="@+id/movie_title"
+            app:layout_constraintTop_toBottomOf="@+id/movie_year" />
+
+        <ImageView
+            android:id="@+id/is_favorite"
+            app:isFavourite="@{movie.favourite}"
+            android:transitionName="@{@string/isFavoriteTN(String.valueOf(movie.id))}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/movie_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/poster_image"
+            app:layout_constraintTop_toTopOf="@+id/movie_title"
+            app:srcCompat="@drawable/ic_baseline_favorite_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
